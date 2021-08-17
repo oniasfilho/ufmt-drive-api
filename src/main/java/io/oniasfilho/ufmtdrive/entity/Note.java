@@ -12,6 +12,6 @@ public class Note {
     private Long id;
     private String noteTitle;
     private String noteDescription;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 }
