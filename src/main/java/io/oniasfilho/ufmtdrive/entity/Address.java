@@ -1,5 +1,6 @@
 package io.oniasfilho.ufmtdrive.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,6 +15,5 @@ public class Address {
     private String city;
     private String state;
     private String zip_code;
-    @ManyToOne
-    private User user;
 }
+

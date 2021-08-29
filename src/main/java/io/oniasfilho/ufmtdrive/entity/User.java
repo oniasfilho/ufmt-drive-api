@@ -2,10 +2,8 @@ package io.oniasfilho.ufmtdrive.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity(name = "user_data")
@@ -18,4 +16,8 @@ public class User {
     private String password;
     private String first_name;
     private String last_name;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Note> notes;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 }

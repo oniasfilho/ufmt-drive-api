@@ -12,6 +12,9 @@ public class Note {
     private Long id;
     private String noteTitle;
     private String noteDescription;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne (cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name="user_id")
     private User user;
 }
+
+

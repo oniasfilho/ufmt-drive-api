@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
-
     UserRepository userRepository;
     NoteRepository noteRepository;
 

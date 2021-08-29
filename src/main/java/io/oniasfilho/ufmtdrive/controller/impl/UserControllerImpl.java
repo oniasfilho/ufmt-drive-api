@@ -4,7 +4,6 @@ import io.oniasfilho.ufmtdrive.controller.UserController;
 import io.oniasfilho.ufmtdrive.dto.UserReqDTO;
 import io.oniasfilho.ufmtdrive.dto.UserRespDTO;
 import io.oniasfilho.ufmtdrive.dto.UserRespWithoutNotesDTO;
-import io.oniasfilho.ufmtdrive.entity.User;
 import io.oniasfilho.ufmtdrive.service.UserService;
 import org.springframework.web.bind.annotation.*;
 

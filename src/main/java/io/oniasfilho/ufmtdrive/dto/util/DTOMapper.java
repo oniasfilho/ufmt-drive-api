@@ -4,8 +4,6 @@ import io.oniasfilho.ufmtdrive.dto.*;
 import io.oniasfilho.ufmtdrive.entity.Note;
 import io.oniasfilho.ufmtdrive.entity.User;
 
-import java.util.List;
-
 public class DTOMapper {
 
     public static NoteReqDTO note2NoteReqDTO(Note note){
@@ -39,7 +37,6 @@ public class DTOMapper {
       dto.setUsername(user.getUsername());
       dto.setFirst_name(user.getFirst_name());
       dto.setLast_name(user.getLast_name());
-
       return dto;
     }
 
@@ -49,7 +46,6 @@ public class DTOMapper {
         dto.setUsername(user.getUsername());
         dto.setFirst_name(user.getFirst_name());
         dto.setLast_name(user.getLast_name());
-
         return dto;
     }
 
@@ -62,9 +58,4 @@ public class DTOMapper {
         return user;
     }
 
-//    private Long id;
-//    private String username;
-//    private String first_name;
-//    private String last_name;
-//    private List<NoteRespDTO> notas;
 }
