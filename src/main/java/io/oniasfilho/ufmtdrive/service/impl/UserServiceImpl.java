@@ -1,10 +1,8 @@
 package io.oniasfilho.ufmtdrive.service.impl;
 
-import io.oniasfilho.ufmtdrive.dto.NoteRespUsersListDTO;
-import io.oniasfilho.ufmtdrive.dto.UserReqDTO;
-import io.oniasfilho.ufmtdrive.dto.UserRespDTO;
-import io.oniasfilho.ufmtdrive.dto.UserRespWithoutNotesDTO;
+import io.oniasfilho.ufmtdrive.dto.*;
 import io.oniasfilho.ufmtdrive.dto.util.DTOMapper;
+import io.oniasfilho.ufmtdrive.entity.Address;
 import io.oniasfilho.ufmtdrive.entity.Note;
 import io.oniasfilho.ufmtdrive.entity.User;
 import io.oniasfilho.ufmtdrive.repository.NoteRepository;
@@ -47,9 +45,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserRespWithoutNotesDTO createUser(UserReqDTO dto) {
-        User user = DTOMapper.userReqDTO2User(dto);
-        return DTOMapper.user2UserRespWithoutNotes(userRepository.save(user));
+    public void createUser(UserCreateReqDTO dto) {
+        User novo_usuario = new User();
+        Address novo_endereco = new Address();
+
+        novo_usuario.setUsername(dto.getUsername());
+        novo_usuario.setPassword(dto.getPassword());
+        novo_usuario.setFirst_name(dto.getFirst_name());
+        novo_usuario.setLast_name(dto.getLast_name());
+
+        novo_endereco.setStreet(dto.getAddress().getStreet());
+        novo_endereco.setCity(dto.getAddress().getCity());
+        novo_endereco.setState(dto.getAddress().getState());
+        novo_endereco.setZip_code(dto.getAddress().getZip_code());
+
+        novo_usuario.setAddress(novo_endereco);
+
+        userRepository.save(novo_usuario);
     }
 
     @Override

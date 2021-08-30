@@ -1,6 +1,7 @@
 package io.oniasfilho.ufmtdrive.controller.impl;
 
 import io.oniasfilho.ufmtdrive.controller.UserController;
+import io.oniasfilho.ufmtdrive.dto.UserCreateReqDTO;
 import io.oniasfilho.ufmtdrive.dto.UserReqDTO;
 import io.oniasfilho.ufmtdrive.dto.UserRespDTO;
 import io.oniasfilho.ufmtdrive.dto.UserRespWithoutNotesDTO;
@@ -23,8 +24,8 @@ public class UserControllerImpl implements UserController {
     }
 
     @PostMapping("/api/user")
-    public UserRespWithoutNotesDTO createUser(@RequestBody UserReqDTO dto) {
-        return service.createUser(dto);
+    public void createUser(@RequestBody UserCreateReqDTO dto) {
+        service.createUser(dto);
     }
 
     @PutMapping("/api/user")
