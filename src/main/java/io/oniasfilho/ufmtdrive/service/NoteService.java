@@ -8,7 +8,7 @@ import io.oniasfilho.ufmtdrive.entity.Note;
 import java.util.List;
 
 public interface NoteService {
-    public Note createNewNote(Note note);
+    public Note createNewNote(NoteReqDTO note);
     public NoteRespDTO getNoteById(Long id);
     public List<NoteRespDTO> getAllNotesByUserId(Long userId);
     public NoteRespDTO updateNote(NoteReqForUpdateDTO note);

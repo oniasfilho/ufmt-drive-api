@@ -26,12 +26,13 @@ public class NoteServiceImpl implements NoteService {
         this.userRepository = userRepository;
     }
 
-    public Note createNewNote(Note note) {
-        User user = userRepository.findById(note.getUser().getId()).get();
-        Note newNote = note;
-        newNote.setUser(user);
-        repository.save(newNote);
-        return newNote;
+    public Note createNewNote(NoteReqDTO note) {
+        User user = userRepository.findById(note.getUser_id()).get();
+        Note nova_nota = new Note();
+        nova_nota.setUser(user);
+        nova_nota.setNoteTitle(note.getNote_title());
+        nova_nota.setNoteDescription(note.getNote_description());
+        return repository.save(nova_nota);
     }
 
     @Override

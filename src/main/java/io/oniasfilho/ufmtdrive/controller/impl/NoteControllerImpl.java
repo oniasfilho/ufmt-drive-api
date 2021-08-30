@@ -5,6 +5,7 @@ import io.oniasfilho.ufmtdrive.dto.NoteReqDTO;
 import io.oniasfilho.ufmtdrive.dto.NoteReqForUpdateDTO;
 import io.oniasfilho.ufmtdrive.dto.util.DTOMapper;
 import io.oniasfilho.ufmtdrive.dto.NoteRespDTO;
+import io.oniasfilho.ufmtdrive.entity.Note;
 import io.oniasfilho.ufmtdrive.service.NoteService;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +22,8 @@ public class NoteControllerImpl implements NoteController {
 
     @PostMapping("/api/note")
     public NoteRespDTO createNewNote(@RequestBody NoteReqDTO note) {
-        NoteRespDTO response = DTOMapper.note2NoteRespDTO(service.createNewNote(DTOMapper.noteReqDTO2Note(note)));
-        return response;
+        Note newNote = service.createNewNote(note);
+        return DTOMapper.note2NoteRespDTO(newNote);
     }
 
     @GetMapping("/api/note/{id}")
