@@ -8,6 +8,8 @@ import io.oniasfilho.ufmtdrive.entity.User;
 import io.oniasfilho.ufmtdrive.repository.NoteRepository;
 import io.oniasfilho.ufmtdrive.repository.UserRepository;
 import io.oniasfilho.ufmtdrive.service.UserService;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -50,7 +52,7 @@ public class UserServiceImpl implements UserService {
         Address novo_endereco = new Address();
 
         novo_usuario.setUsername(dto.getUsername());
-        novo_usuario.setPassword(dto.getPassword());
+        novo_usuario.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt()));
         novo_usuario.setFirst_name(dto.getFirst_name());
         novo_usuario.setLast_name(dto.getLast_name());
 
