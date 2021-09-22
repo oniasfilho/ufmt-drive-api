@@ -12,7 +12,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
-    private String salt;
     private String password;
     private String first_name;
     private String last_name;
@@ -21,3 +20,4 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 }
+
