@@ -26,9 +26,19 @@ public class NoteControllerImpl implements NoteController {
     }
 
     @PostMapping("/api/note")
-    public NoteRespDTO createNewNote(@RequestBody NoteReqDTO note) {
-        Note newNote = service.createNewNote(note);
+    public NoteRespDTO createNewNote(@RequestBody NoteReqDTO note, @RequestHeader (name="Authorization") String token) {
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = (String) authentication.getPrincipal();
+        User newUser = userService.findUserByUsername(username);
+        NoteReqDTO comId = note;
+        comId.setUser_id(newUser.getId());
+        Note newNote = service.createNewNote(comId);
         return DTOMapper.note2NoteRespDTO(newNote);
+    }
+
+    @Override
+    public NoteRespDTO createNewNote(NoteReqDTO note) {
+        return null;
     }
 
     @GetMapping("/api/note/{id}")
@@ -38,7 +48,6 @@ public class NoteControllerImpl implements NoteController {
 
     @GetMapping("/api/note")
     public List<NoteRespDTO> getAllNotes(@RequestHeader (name="Authorization") String token) {
-        System.out.println(token);
         var authentication = SecurityContextHolder.getContext().getAuthentication();
 
         String username = (String) authentication.getPrincipal();

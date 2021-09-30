@@ -9,7 +9,6 @@ import io.oniasfilho.ufmtdrive.repository.NoteRepository;
 import io.oniasfilho.ufmtdrive.repository.UserRepository;
 import io.oniasfilho.ufmtdrive.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -12,7 +12,7 @@ public class DTOMapper {
     }
 
     public static NoteRespDTO note2NoteRespDTO(Note note){
-        NoteRespDTO dto = new NoteRespDTO(note.getNoteTitle(), note.getNoteDescription(), note.getUser().getId());
+        NoteRespDTO dto = new NoteRespDTO(note.getId(), note.getNoteTitle(), note.getNoteDescription(), note.getUser().getId());
         return dto;
     }
 
