@@ -1,7 +1,10 @@
 package io.oniasfilho.ufmtdrive.entity;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 import javax.persistence.*;
 @Entity
+@ConfigurationProperties(prefix = "file")
 public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
