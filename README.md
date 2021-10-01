@@ -31,3 +31,7 @@ $ mvn clean package install & mvn clean spring-boot:run
 ```
 Após a execução, a API estará disponível em http://localhost/8080 onde haverá dois endpoinds, um de [teste](http://localhost/8080/ping) e o [principal](http://localhost:8080/api/IMDB).
 
+
+Postman Collection: https://github.com/oniasfilho/postman_collection
+
+Front End: https://github.com/oniasfilho/ufmt-drive-front
